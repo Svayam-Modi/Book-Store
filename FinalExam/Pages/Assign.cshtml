@@ -1,0 +1,51 @@
+﻿@page
+@model FinalExam.Pages.AssignModel
+@{
+}
+<link rel="stylesheet"  href="/css/site.css" asp-append-version="true" />
+<div style="margin-top:5%">
+
+   <form method="post">
+<table width="60%">
+     <tr> 
+         <td width="9%">
+                <label asp-for="Authors" class="control-label"></label>
+                </td> 
+                <td width="40%">
+                <select asp-for="AuthorId" class="form-control" required>
+                    <option value="" selected>-- Select Author --</option>
+                    @{
+                        foreach(var item in Model.Authors)
+                        {
+                            <option value="@item.AuthorId">@item.FirstName @item.LastName</option>
+                        }
+                    }
+                </select>
+            </td>
+
+              <td width="5%"></td>            
+                <td width="7%">
+                <label asp-for="Books" class="control-label"></label>
+               </td>
+               <td width="40%">
+                   <select asp-for="BookId" class="form-control" required>
+                    <option value="" selected>-- Selected Books --</option>
+                    @{
+                        foreach(var item in Model.Books)
+                        {
+                            <option value="@item.BookId">@item.Title</option>
+                        }
+                    }
+                </select>
+                </td> 
+            </tr>
+        <tr><td colspan="5"> &nbsp;&nbsp;&nbsp;&nbsp; </td></tr>
+        <tr>
+              <td colspan="5" align="center">
+              <input type="submit" value="Assign" class="btn btn-primary"/>
+        </td>
+                </tr>
+   </table>
+            </form>
+    
+    </div>
